@@ -10,4 +10,15 @@ export async function fetchMovies() {
   });
   return response.data.results;
 }
+export async function fetchMoviesByName(query) {
+  const response = await axios('search/movie', {
+    params: {
+      api_key: KEY,
+      query: query,
+      page: 1,
+    },
+  });
+  return response.data.results;
+}
+
 // `https://api.themoviedb.org/3/trending/movie/day?api_key=${KEY}`;
