@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { fetchMovies } from 'services/fetchApi';
-const imageUrl = 'https://image.tmdb.org/t/p/w500/';
 export const Home = () => {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
@@ -18,5 +17,4 @@ export const Home = () => {
   );
 };
 {
-  /* <img src={`${imageUrl}${poster_path}`} alt={title} width="200" /> */
 }
