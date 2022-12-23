@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { fetchMovies } from 'services/fetchApi';
 const imageUrl = 'https://image.tmdb.org/t/p/w500/';
 export const Home = () => {
@@ -11,7 +11,7 @@ export const Home = () => {
     <ul>
       {movies.map(({ id, title, poster_path }) => (
         <li key={id}>
-          <Link>{title}</Link>
+          <Link to={`/movies/${id}`}>{title}</Link>
         </li>
       ))}
     </ul>

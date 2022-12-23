@@ -36,7 +36,7 @@ export const Movies = () => {
           <ul>
             {movies.map(({ id, title, poster_path }) => (
               <li key={id}>
-                <Link>{title}</Link>
+                <Link to={`/movies/${id}`}>{title}</Link>
               </li>
             ))}
           </ul>
