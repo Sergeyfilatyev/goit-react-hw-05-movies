@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, NavLink, Outlet, useParams } from 'react-router-dom';
+import { NavLink, Outlet, useParams } from 'react-router-dom';
 import { fetchMoviesById } from 'services/fetchApi';
 const imageUrl = 'https://image.tmdb.org/t/p/w500/';
 export const MovieDetails = () => {
