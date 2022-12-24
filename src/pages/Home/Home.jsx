@@ -1,21 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { fetchMovies } from 'services/fetchApi';
+import { MoviesList } from 'components/MoviesList/MoviesList';
 export const Home = () => {
   const location = useLocation();
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     fetchMovies().then(setMovies);
   }, []);
-  return (
-    <ul>
-      {movies.map(({ id, title, poster_path }) => (
-        <li key={id}>
-          <Link to={`/movies/${id}`} state={{ from: location }}>
-            {title}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  );
+  return <MoviesList movies={movies} location={location} />;
 };

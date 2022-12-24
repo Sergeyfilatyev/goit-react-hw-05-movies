@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { fetchMoviesByName } from 'services/fetchApi';
 import { MovieNotification } from 'components/MovieNotification/MovieNotification';
+import { SearchForm } from 'components/SearchForm/SearchForm';
+import { MoviesList } from 'components/MoviesList/MoviesList';
 export const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -36,30 +38,9 @@ export const Movies = () => {
   };
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="query"
-          autoComplete="off"
-          autoFocus
-          placeholder="Search movies here"
-        />
-        <button type="submit">
-          <span>Search</span>
-        </button>
-      </form>
+      <SearchForm onSubmit={handleSubmit} />
       {movies.length > 0 ? (
-        <>
-          <ul>
-            {movies.map(({ id, title, poster_path }) => (
-              <li key={id}>
-                <Link to={`/movies/${id}`} state={{ from: location }}>
-                  {title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </>
+        <MoviesList movies={movies} location={location} />
       ) : (
         <MovieNotification text={notification} />
       )}

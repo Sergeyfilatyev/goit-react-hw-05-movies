@@ -1,14 +1,18 @@
 import { Navigation } from 'components/Navigation/Navigation';
 import { Outlet } from 'react-router-dom';
+import { Container, Footer, Header } from './Layout.styled';
 export const Layout = () => {
   return (
     <>
-      <header>
+      <Header>
         <Navigation />
-      </header>
+      </Header>
       <main>
-        <Outlet />
+        <Container>
+          <Outlet />
+        </Container>
       </main>
+      <Footer></Footer>
     </>
   );
 };

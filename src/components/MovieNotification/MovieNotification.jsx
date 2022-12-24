@@ -1,3 +1,5 @@
+import { Paragraph } from './MovieNotification.styled';
+
 export const MovieNotification = ({ text }) => {
-  return <p>{text}</p>;
+  return <Paragraph>{text}</Paragraph>;
 };

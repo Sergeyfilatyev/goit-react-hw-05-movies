@@ -1,16 +1,16 @@
-import { Item, List, NavMenuLink } from './Navigation.styled';
+import { Li, Nav, NavMenuLink, Ul } from './Navigation.styled';
 
 export const Navigation = () => {
   return (
-    <nav>
-      <List>
-        <Item>
+    <Nav>
+      <Ul>
+        <Li>
           <NavMenuLink to="/">Home</NavMenuLink>
-        </Item>
-        <Item>
+        </Li>
+        <Li>
           <NavMenuLink to="/movies">Movies</NavMenuLink>
-        </Item>
-      </List>
-    </nav>
+        </Li>
+      </Ul>
+    </Nav>
   );
 };

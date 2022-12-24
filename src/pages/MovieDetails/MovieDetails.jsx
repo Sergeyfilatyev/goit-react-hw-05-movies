@@ -32,7 +32,7 @@ export const MovieDetails = () => {
           src={
             movie.poster_path
               ? `${imageUrl}${movie.poster_path}`
-              : 'https://creazilla-store.fra1.digitaloceanspaces.com/emojis/46301/bust-in-silhouette-emoji-clipart-md.png'
+              : 'https://e7.pngegg.com/pngimages/84/530/png-clipart-film-clapperboard-computer-icons-cinema-shows-miscellaneous-angle.png'
           }
           alt={movie.title}
           width="300"
