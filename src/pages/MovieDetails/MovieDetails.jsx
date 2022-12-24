@@ -1,10 +1,18 @@
 import { useState, useEffect } from 'react';
-import { NavLink, Outlet, useParams } from 'react-router-dom';
+import {
+  NavLink,
+  Outlet,
+  useParams,
+  useNavigate,
+  useLocation,
+} from 'react-router-dom';
 import { fetchMoviesById } from 'services/fetchApi';
 const imageUrl = 'https://image.tmdb.org/t/p/w500/';
 export const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const { movieId } = useParams();
+  const navigate = useNavigate();
+  const location = useLocation();
   useEffect(() => {
     fetchMoviesById(movieId).then(setMovie);
   }, [movieId]);
@@ -12,8 +20,20 @@ export const MovieDetails = () => {
   return (
     movie && (
       <>
+        <button
+          type="button"
+          onClick={() => {
+            navigate(location?.state?.from ?? '/');
+          }}
+        >
+          Go back
+        </button>
         <img
-          src={`${imageUrl}${movie.poster_path}`}
+          src={
+            movie.poster_path
+              ? `${imageUrl}${movie.poster_path}`
+              : 'https://creazilla-store.fra1.digitaloceanspaces.com/emojis/46301/bust-in-silhouette-emoji-clipart-md.png'
+          }
           alt={movie.title}
           width="300"
         />
