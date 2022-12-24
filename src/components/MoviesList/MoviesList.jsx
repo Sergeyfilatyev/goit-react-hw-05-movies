@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { Img, Li, LinkStyled, Ul } from './MoviesList.styled';
 export const MoviesList = ({ movies, location }) => {
   const imageUrl = 'https://image.tmdb.org/t/p/w500/';
