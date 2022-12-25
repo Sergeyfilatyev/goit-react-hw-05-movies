@@ -1,3 +1,5 @@
+import { ReviewsList } from 'components/ReviewsList/ReviewsList';
+import { ReviewsNotification } from 'components/ReviewsNotification/ReviewsNotification';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMoviesReviews } from 'services/fetchApi';
@@ -10,16 +12,9 @@ export const Reviews = () => {
   return (
     <>
       {reviews.length > 0 ? (
-        <ul>
-          {reviews.map(({ id, author, content }) => (
-            <li key={id}>
-              <h3>{author}</h3>
-              <p>{content}</p>
-            </li>
-          ))}
-        </ul>
+        <ReviewsList reviews={reviews} />
       ) : (
-        <p>We don't have reviews for this movie.</p>
+        <ReviewsNotification />
       )}
     </>
   );

@@ -1,3 +1,4 @@
+import { ButtonGoBack } from 'components/ButtonGoBack/ButtonGoBack';
 import { useState, useEffect } from 'react';
 import {
   NavLink,
@@ -11,7 +12,6 @@ const imageUrl = 'https://image.tmdb.org/t/p/w500/';
 export const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const { movieId } = useParams();
-  const navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
     fetchMoviesById(movieId).then(setMovie);
@@ -20,14 +20,7 @@ export const MovieDetails = () => {
   return (
     movie && (
       <>
-        <button
-          type="button"
-          onClick={() => {
-            navigate(location?.state?.from ?? '/');
-          }}
-        >
-          Go back
-        </button>
+        <ButtonGoBack location={location} />
         <img
           src={
             movie.poster_path
