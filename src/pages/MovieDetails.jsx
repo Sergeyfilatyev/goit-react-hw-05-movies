@@ -1,12 +1,6 @@
 import { ButtonGoBack } from 'components/ButtonGoBack/ButtonGoBack';
 import { useState, useEffect } from 'react';
-import {
-  NavLink,
-  Outlet,
-  useParams,
-  useNavigate,
-  useLocation,
-} from 'react-router-dom';
+import { NavLink, Outlet, useParams, useLocation } from 'react-router-dom';
 import { fetchMoviesById } from 'services/fetchApi';
 const imageUrl = 'https://image.tmdb.org/t/p/w500/';
 export const MovieDetails = () => {
