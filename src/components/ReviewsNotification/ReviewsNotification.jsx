@@ -1,3 +1,5 @@
+import { Paragraph } from './ReviewsNotification.styled';
+
 export const ReviewsNotification = () => {
-  return <p>We don't have reviews for this movie.</p>;
+  return <Paragraph>We don't have reviews for this movie.</Paragraph>;
 };

@@ -1,9 +1,8 @@
-import { Img, Li, LinkStyled, Title, Ul } from './MoviesList.styled';
+import { Img, Li, LinkStyled, Span, Title, Ul } from './MoviesList.styled';
 export const MoviesList = ({ movies, location }) => {
   const imageUrl = 'https://image.tmdb.org/t/p/w500/';
   return (
     <>
-      <Title>Trending movies</Title>
       <Ul>
         {movies.map(({ id, title, poster_path }) => (
           <Li key={id}>
@@ -16,7 +15,7 @@ export const MoviesList = ({ movies, location }) => {
                 }
                 alt={title}
               />
-              {title}
+              <Span>{title}</Span>
             </LinkStyled>
           </Li>
         ))}
