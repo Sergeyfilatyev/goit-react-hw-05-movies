@@ -1,4 +1,4 @@
-import { Img, Li, LinkStyled, Span, Title, Ul } from './MoviesList.styled';
+import { Img, Li, LinkStyled, Span, Ul } from './MoviesList.styled';
 export const MoviesList = ({ movies, location }) => {
   const imageUrl = 'https://image.tmdb.org/t/p/w500/';
   return (

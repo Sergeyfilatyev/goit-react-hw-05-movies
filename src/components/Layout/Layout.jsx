@@ -1,5 +1,5 @@
 import { Navigation } from 'components/Navigation/Navigation';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { Container, Footer, Header, LinkGit } from './Layout.styled';
 export const Layout = () => {
   return (
