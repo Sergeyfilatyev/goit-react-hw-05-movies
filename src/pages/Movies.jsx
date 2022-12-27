@@ -4,6 +4,8 @@ import { fetchMoviesByName } from 'services/fetchApi';
 import { MovieNotification } from 'components/MovieNotification/MovieNotification';
 import { SearchForm } from 'components/SearchForm/SearchForm';
 import { MoviesList } from 'components/MoviesList/MoviesList';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -28,8 +30,7 @@ export const Movies = () => {
       event.target.elements.query.value === null ||
       event.target.elements.query.value.trim() === ''
     ) {
-      setMovies([]);
-      setNotification('Please input title movie!');
+      toast.warn('Please input title movie!');
     }
 
     setSearchParams({ query: event.target.elements.query.value });
@@ -38,6 +39,18 @@ export const Movies = () => {
   };
   return (
     <>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={true}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <SearchForm onSubmit={handleSubmit} />
       {movies.length > 0 ? (
         <MoviesList movies={movies} location={location} />
