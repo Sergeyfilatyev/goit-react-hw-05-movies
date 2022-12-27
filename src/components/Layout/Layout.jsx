@@ -4,14 +4,16 @@ import { BoxMain, Container, Footer, Header, LinkGit } from './Layout.styled';
 export const Layout = () => {
   return (
     <Container>
-      <Header>
-        <Navigation />
-      </Header>
-      <main>
-        <BoxMain>
-          <Outlet />
-        </BoxMain>
-      </main>
+      <div>
+        <Header>
+          <Navigation />
+        </Header>
+        <main>
+          <BoxMain>
+            <Outlet />
+          </BoxMain>
+        </main>
+      </div>
       <Footer>
         Movie 2022 Powered by{' '}
         <LinkGit
