@@ -20,6 +20,6 @@ export const LinkGit = styled.a`
   color: black;
   transition: color 250ms linear;
   &:hover {
-    color: red;
+    color: #fe642e;
   }
 `;

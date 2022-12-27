@@ -1,4 +1,5 @@
 import { Button, Form, Input } from './SearchForm.styled';
+import { ImSearch } from 'react-icons/im';
 
 export const SearchForm = ({ onSubmit }) => {
   return (
@@ -11,7 +12,7 @@ export const SearchForm = ({ onSubmit }) => {
         placeholder="Search movies here"
       />
       <Button type="submit">
-        <span>Search</span>
+        <ImSearch color="#FE642E" />
       </Button>
     </Form>
   );

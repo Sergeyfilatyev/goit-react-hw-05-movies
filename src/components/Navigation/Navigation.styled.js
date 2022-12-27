@@ -16,6 +16,6 @@ export const NavMenuLink = styled(NavLink)`
   font-weight: 700;
   transition: color 250ms linear;
   &.active {
-    color: red;
+    color: #fe642e;
   }
 `;
