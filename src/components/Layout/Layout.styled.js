@@ -7,6 +7,12 @@ export const Header = styled.header`
   background-color: #e1f5a9;
 `;
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+`;
+export const BoxMain = styled.div`
   max-width: 1200px;
   margin: 0 auto;
 `;

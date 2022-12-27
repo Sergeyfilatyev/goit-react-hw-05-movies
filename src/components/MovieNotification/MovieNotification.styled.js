@@ -2,9 +2,10 @@ import styled from 'styled-components';
 export const Paragraph = styled.p`
   margin: 50px auto;
   text-align: center;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
   max-width: 450px;
+  padding: 25px 10px;
   border-radius: 5px;
   background-color: #f7f8e0;
   transition: all 250ms linear;

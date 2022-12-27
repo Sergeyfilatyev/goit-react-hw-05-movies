@@ -12,7 +12,7 @@ export const SearchForm = ({ onSubmit }) => {
         placeholder="Search movies here"
       />
       <Button type="submit">
-        <ImSearch color="#FE642E" />
+        <ImSearch color="#FE642E" size="2em" />
       </Button>
     </Form>
   );

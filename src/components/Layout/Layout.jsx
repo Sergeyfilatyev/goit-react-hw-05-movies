@@ -1,16 +1,16 @@
 import { Navigation } from 'components/Navigation/Navigation';
 import { Outlet } from 'react-router-dom';
-import { Container, Footer, Header, LinkGit } from './Layout.styled';
+import { BoxMain, Container, Footer, Header, LinkGit } from './Layout.styled';
 export const Layout = () => {
   return (
-    <>
+    <Container>
       <Header>
         <Navigation />
       </Header>
       <main>
-        <Container>
+        <BoxMain>
           <Outlet />
-        </Container>
+        </BoxMain>
       </main>
       <Footer>
         Movie 2022 Powered by{' '}
@@ -22,6 +22,6 @@ export const Layout = () => {
           SergeyFilatyev
         </LinkGit>
       </Footer>
-    </>
+    </Container>
   );
 };

@@ -8,8 +8,8 @@ export const Form = styled.form`
 export const Input = styled.input`
   background-color: #f7f8e0;
   border: 2px solid #fe642e;
+  font-size: 20px;
   border-radius: 4px;
-  height: 22px;
   padding: 3px 10px;
 `;
 export const Button = styled.button`
@@ -18,6 +18,6 @@ export const Button = styled.button`
   background-color: transparent;
   transition: transform 250ms linear;
   &:hover {
-    transform: scale(1.3);
+    transform: scale(1.1);
   }
 `;
