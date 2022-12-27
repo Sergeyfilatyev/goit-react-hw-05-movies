@@ -1,15 +1,16 @@
 import { useNavigate } from 'react-router-dom';
+import { Button } from './ButtonGoBack.styled';
 
 export const ButtonGoBack = ({ location }) => {
   const navigate = useNavigate();
   return (
-    <button
+    <Button
       type="button"
       onClick={() => {
         navigate(location?.state?.from ?? '/');
       }}
     >
-      Go back
-    </button>
+      &#9166; Go back
+    </Button>
   );
 };

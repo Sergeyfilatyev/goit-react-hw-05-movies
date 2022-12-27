@@ -1,12 +1,14 @@
+import { Li, Paragraph, Title, Ul } from './ReviewsList.styled';
+
 export const ReviewsList = ({ reviews }) => {
   return (
-    <ul>
+    <Ul>
       {reviews.map(({ id, author, content }) => (
-        <li key={id}>
-          <h3>{author}</h3>
-          <p>{content}</p>
-        </li>
+        <Li key={id}>
+          <Title>{author}</Title>
+          <Paragraph>{content}</Paragraph>
+        </Li>
       ))}
-    </ul>
+    </Ul>
   );
 };

@@ -1,9 +1,19 @@
-import { NavLink } from 'react-router-dom';
+import {
+  BoxInfo,
+  Container,
+  Img,
+  Li,
+  LinkStyled,
+  Paragraph,
+  SubTitle,
+  Title,
+  Ul,
+} from './MovieInfo.styled';
 export const MovieInfo = ({ movie }) => {
   const imageUrl = 'https://image.tmdb.org/t/p/w500/';
   return (
-    <>
-      <img
+    <Container>
+      <Img
         src={
           movie.poster_path
             ? `${imageUrl}${movie.poster_path}`
@@ -12,21 +22,24 @@ export const MovieInfo = ({ movie }) => {
         alt={movie.title}
         width="300"
       />
-      <h1>{movie.title}</h1>
-      <p>User Score: {movie.vote_average * 10}%</p>
-      <h2>Overview</h2>
-      <p>{movie.overview}</p>
-      {<h3>Genres</h3>}
-      {<p>{movie.genres.map(genre => genre.name).join(' ')}</p>}
-      <h3>Additional information</h3>
-      <ul>
-        <li>
-          <NavLink to="cast">Cast</NavLink>
-        </li>
-        <li>
-          <NavLink to="reviews">Reviews</NavLink>
-        </li>
-      </ul>
-    </>
+      <BoxInfo>
+        <Title>{movie.title}</Title>
+        <Paragraph>User Score: {movie.vote_average * 10}%</Paragraph>
+        <SubTitle>Overview</SubTitle>
+        <Paragraph>{movie.overview}</Paragraph>
+        <SubTitle>Genres</SubTitle>
+        <Paragraph>{movie.genres.map(genre => genre.name).join(' ')}</Paragraph>
+        <SubTitle>Additional information &#8681;</SubTitle>
+
+        <Ul>
+          <Li>
+            <LinkStyled to="cast">Cast</LinkStyled>
+          </Li>
+          <Li>
+            <LinkStyled to="reviews">Reviews</LinkStyled>
+          </Li>
+        </Ul>
+      </BoxInfo>
+    </Container>
   );
 };

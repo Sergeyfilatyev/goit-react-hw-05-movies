@@ -6,8 +6,8 @@ export const Form = styled.form`
   align-items: center;
 `;
 export const Input = styled.input`
-  background-color: #f3e2a9;
-  border: none;
+  background-color: #f7f8e0;
+  border: 2px solid #fe642e;
   border-radius: 4px;
   height: 22px;
   padding: 3px 10px;
