@@ -6,24 +6,28 @@ import { SearchForm } from 'components/SearchForm/SearchForm';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ButtonLoadMore } from 'components/ButtonLoadMore/ButtonLoadMore';
 export const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
   const [notification, setNotification] = useState('Please input title movie!');
   const location = useLocation();
+  const [page, setPage] = useState(1);
   useEffect(() => {
     if (query === null || query.trim() === '') {
       return;
     }
     async function fetchMovies() {
-      await fetchMoviesByName(query).then(setMovies);
+      await fetchMoviesByName(query, page).then(movies =>
+        setMovies(prevMovies => [...prevMovies, ...movies])
+      );
       setNotification(
         `Unfortunately, the movie with the title ${query} could not be found, please try again!`
       );
     }
     fetchMovies(query);
-  }, [query]);
+  }, [query, page]);
   const handleSubmit = event => {
     event.preventDefault();
     if (
@@ -36,6 +40,9 @@ export const Movies = () => {
     setSearchParams({ query: event.target.elements.query.value });
 
     event.target.reset();
+  };
+  const nextPage = () => {
+    setPage(prevPage => prevPage + 1);
   };
   return (
     <>
@@ -57,6 +64,7 @@ export const Movies = () => {
       ) : (
         <MovieNotification text={notification} />
       )}
+      <ButtonLoadMore onClick={nextPage} />
     </>
   );
 };

@@ -10,11 +10,11 @@ export const Layout = () => {
           <Navigation />
         </Header>
         <main>
-          <BoxMain>
-            <Suspense>
+          <Suspense>
+            <BoxMain>
               <Outlet />
-            </Suspense>
-          </BoxMain>
+            </BoxMain>
+          </Suspense>
         </main>
       </div>
       <Footer>

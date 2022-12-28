@@ -10,12 +10,12 @@ export async function fetchMovies() {
   });
   return response.data.results;
 }
-export async function fetchMoviesByName(query) {
+export async function fetchMoviesByName(query, page) {
   const response = await axios('search/movie', {
     params: {
       api_key: KEY,
-      query: query,
-      page: 1,
+      query,
+      page,
     },
   });
   return response.data.results;
