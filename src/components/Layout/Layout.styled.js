@@ -13,6 +13,7 @@ export const Container = styled.div`
   height: 100vh;
 `;
 export const BoxMain = styled.div`
+  position: relative;
   max-width: 1200px;
   margin: 0 auto;
 `;

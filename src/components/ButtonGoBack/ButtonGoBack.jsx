@@ -8,6 +8,7 @@ export const ButtonGoBack = ({ location }) => {
       type="button"
       onClick={() => {
         navigate(location?.state?.from ?? '/');
+        console.log(location);
       }}
     >
       &#9166; Go back
