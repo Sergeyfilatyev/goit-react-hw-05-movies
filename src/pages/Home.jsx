@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { fetchMovies } from 'services/fetchApi';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { Title } from 'components/MoviesList/MoviesList.styled';
-export const Home = () => {
+const Home = () => {
   const location = useLocation();
   const [movies, setMovies] = useState([]);
   useEffect(() => {
@@ -16,3 +16,4 @@ export const Home = () => {
     </>
   );
 };
+export default Home;

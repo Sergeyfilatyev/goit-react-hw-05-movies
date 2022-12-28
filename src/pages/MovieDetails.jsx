@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Outlet, useParams, useLocation } from 'react-router-dom';
 import { fetchMoviesById } from 'services/fetchApi';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const { movieId } = useParams();
   const location = useLocation();
@@ -22,3 +22,4 @@ export const MovieDetails = () => {
     )
   );
 };
+export default MovieDetails;

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMoviesCast } from 'services/fetchApi';
 
-export const Cast = () => {
+const Cast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState(null);
   useEffect(() => {
@@ -20,3 +20,4 @@ export const Cast = () => {
     </>
   );
 };
+export default Cast;

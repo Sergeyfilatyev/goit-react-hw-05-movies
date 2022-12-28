@@ -3,7 +3,7 @@ import { ReviewsNotification } from 'components/ReviewsNotification/ReviewsNotif
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMoviesReviews } from 'services/fetchApi';
-export const Reviews = () => {
+const Reviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
@@ -19,3 +19,4 @@ export const Reviews = () => {
     </>
   );
 };
+export default Reviews;

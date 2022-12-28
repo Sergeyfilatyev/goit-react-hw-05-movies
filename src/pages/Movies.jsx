@@ -7,7 +7,7 @@ import { MoviesList } from 'components/MoviesList/MoviesList';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ButtonLoadMore } from 'components/ButtonLoadMore/ButtonLoadMore';
-export const Movies = () => {
+const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
@@ -35,10 +35,16 @@ export const Movies = () => {
       event.target.elements.query.value.trim() === ''
     ) {
       toast.warn('Please input title movie!');
+      return;
     }
-
+    if (query === event.target.elements.query.value) {
+      toast.warn(`Movie ${query} already uploaded`);
+      event.target.reset();
+      return;
+    }
     setSearchParams({ query: event.target.elements.query.value });
-
+    setMovies([]);
+    setPage(1);
     event.target.reset();
   };
   const nextPage = () => {
@@ -68,3 +74,4 @@ export const Movies = () => {
     </>
   );
 };
+export default Movies;
