@@ -18,7 +18,7 @@ export async function fetchMoviesByName(query, page) {
       page,
     },
   });
-  return response.data.results;
+  return response.data;
 }
 export async function fetchMoviesById(movieId) {
   const response = await axios(`/movie/${movieId}`, {

@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import {
   BoxInfo,
   Container,
@@ -11,6 +12,7 @@ import {
 } from './MovieInfo.styled';
 export const MovieInfo = ({ movie }) => {
   const imageUrl = 'https://image.tmdb.org/t/p/w500/';
+  const location = useLocation();
   return (
     <Container>
       <Img
@@ -33,10 +35,14 @@ export const MovieInfo = ({ movie }) => {
 
         <Ul>
           <Li>
-            <LinkStyled to="cast">Cast</LinkStyled>
+            <LinkStyled to="cast" state={location.state}>
+              Cast
+            </LinkStyled>
           </Li>
           <Li>
-            <LinkStyled to="reviews">Reviews</LinkStyled>
+            <LinkStyled to="reviews" state={location.state}>
+              Reviews
+            </LinkStyled>
           </Li>
         </Ul>
       </BoxInfo>

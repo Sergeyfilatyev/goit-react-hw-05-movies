@@ -5,6 +5,7 @@ import { MovieNotification } from 'components/MovieNotification/MovieNotificatio
 import { SearchForm } from 'components/SearchForm/SearchForm';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { ToastContainer, toast } from 'react-toastify';
+import { animateScroll as scroll } from 'react-scroll';
 import 'react-toastify/dist/ReactToastify.css';
 import { ButtonLoadMore } from 'components/ButtonLoadMore/ButtonLoadMore';
 const Movies = () => {
@@ -14,19 +15,23 @@ const Movies = () => {
   const [notification, setNotification] = useState('Please input title movie!');
   const location = useLocation();
   const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(null);
   useEffect(() => {
     if (query === null || query.trim() === '') {
       return;
     }
     async function fetchMovies() {
-      await fetchMoviesByName(query, page).then(movies =>
-        setMovies(prevMovies => [...prevMovies, ...movies])
-      );
+      await fetchMoviesByName(query, page).then(({ results, total_pages }) => {
+        {
+          setMovies(prevMovies => [...prevMovies, ...results]);
+          setTotalPages(total_pages);
+        }
+      });
       setNotification(
         `Unfortunately, the movie with the title ${query} could not be found, please try again!`
       );
     }
-    fetchMovies(query);
+    fetchMovies();
   }, [query, page]);
   const handleSubmit = event => {
     event.preventDefault();
@@ -49,6 +54,7 @@ const Movies = () => {
   };
   const nextPage = () => {
     setPage(prevPage => prevPage + 1);
+    scroll.scrollToBottom();
   };
   return (
     <>
@@ -70,7 +76,9 @@ const Movies = () => {
       ) : (
         <MovieNotification text={notification} />
       )}
-      <ButtonLoadMore onClick={nextPage} />
+      {movies.length > 0 && page < totalPages && (
+        <ButtonLoadMore onClick={nextPage} />
+      )}
     </>
   );
 };
