@@ -22,10 +22,8 @@ const Movies = () => {
     }
     async function fetchMovies() {
       await fetchMoviesByName(query, page).then(({ results, total_pages }) => {
-        {
-          setMovies(prevMovies => [...prevMovies, ...results]);
-          setTotalPages(total_pages);
-        }
+        setMovies(prevMovies => [...prevMovies, ...results]);
+        setTotalPages(total_pages);
       });
       setNotification(
         `Unfortunately, the movie with the title ${query} could not be found, please try again!`
